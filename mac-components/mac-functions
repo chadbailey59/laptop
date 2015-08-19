@@ -1,7 +1,0 @@
-brew_install_or_upgrade() {
-  if brew list -1 | grep -Fqx "$1"; then
-    (brew upgrade "$@") || true
-  else
-    brew install "$@"
-  fi
-}

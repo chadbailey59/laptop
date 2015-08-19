@@ -1,0 +1,8 @@
+fancy_echo "Installing Tmuxinator..."
+gem install tmuxinator
+
+fancy_echo "Installing Foreman..."
+gem install foreman
+
+fancy_echo "Installing Mailcatcher..."
+gem install mailcatcher

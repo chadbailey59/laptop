@@ -1,0 +1,12 @@
+install_app_store_app "Evernote" "https://itunes.apple.com/us/app/evernote/id406056744?mt=12"
+install_app_store_app "Skitch" "https://itunes.apple.com/us/app/skitch-snap.-mark-up.-share./id425955336?mt=12"
+install_app_store_app "Moom" "https://itunes.apple.com/us/app/moom/id419330170?mt=12"
+install_app_store_app "Reeder 2" "https://itunes.apple.com/us/app/reeder-2/id880001334?mt=12"
+install_app_store_app "Pixelmator" "https://itunes.apple.com/us/app/pixelmator/id407963104?mt=12"
+install_app_store_app "Alternote" "https://itunes.apple.com/us/app/alternote-beautiful-note-taking/id974971992?mt=12"
+install_app_store_app "Harvest" "https://itunes.apple.com/us/app/harvest/id506189836?mt=12"
+install_app_store_app "Pocket" "https://itunes.apple.com/us/app/pocket/id568494494?mt=12"
+install_app_store_app "Tweetbot" "https://itunes.apple.com/us/app/tweetbot-for-twitter/id557168941?mt=12"
+install_app_store_app "DaisyDisk" "https://itunes.apple.com/us/app/daisydisk/id411643860?mt=12"
+
+echo "install yubiswitch from https://github.com/pallotron/yubiswitch"

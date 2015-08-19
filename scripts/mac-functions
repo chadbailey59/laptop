@@ -1,0 +1,29 @@
+brew_install_or_upgrade() {
+  if brew list -1 | grep -Fqx "$1"; then
+    (brew upgrade "$@") || true
+  else
+    brew install "$@"
+  fi
+}
+
+brew_cask_install_or_upgrade() {
+  if brew cask list | grep -Fqx "$1"; then
+    fancy_error "$1 is already installed."
+  else
+    brew cask install "$@"
+    fancy_echo "$1 was installed. Open the app for any initial setup."
+    read
+  fi
+}
+
+install_app_store_app() {
+  # $1 is fancy app name, $2 is a link to the app store
+  fancy_echo "Checking for $1..."
+  if ls /Applications/ | grep -qs "$1.app"; then
+    fancy_error "$1 is already installed."
+  else
+    fancy_echo "Install $1 from the Mac App Store at $2 , then press enter to continue."
+  	open $2
+    read
+  fi
+}

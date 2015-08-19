@@ -1,0 +1,18 @@
+if ! command -v brew &>/dev/null; then
+  fancy_echo "Installing Homebrew, a good OS X package manager ..."
+    ruby <(curl -fsS https://raw.githubusercontent.com/Homebrew/homebrew/go/install)
+  fancy_echo "Setting XCode install..."
+  sudo xcode-select --switch /Applications/Xcode6-Beta2.app/Contents/Developer/
+else
+  fancy_echo "Homebrew already installed. Skipping ..."
+fi
+
+# fancy_echo "Updating Homebrew formulas ..."
+# brew update
+
+# fancy_error "Skipping homebrew update for now."
+
+brew tap homebrew/dupes
+brew tap caskroom/cask
+brew install brew-cask
+brew cask update

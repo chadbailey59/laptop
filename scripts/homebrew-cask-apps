@@ -1,0 +1,8 @@
+apps=(1password alfred evernote bartender dropbox easysimbl fluid fantastical hipchat kindle send-to-kindle scroll-reverser skitch tripmode vlc iterm2 slack)
+
+for i in ${apps[@]}; do
+	fancy_echo "Installing ${i}..."
+	brew_cask_install_or_upgrade ${i}
+done
+
+brew cask alfred link

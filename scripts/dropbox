@@ -1,0 +1,3 @@
+brew cask install dropbox
+fancy_echo "Now open Dropbox and set it up, and wait for it to sync..."
+read

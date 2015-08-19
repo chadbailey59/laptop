@@ -1,0 +1,4 @@
+fancy_echo "Install the Heroku Toolbelt, then press Enter to continue..."
+open "https://toolbelt.heroku.com/osx"
+read
+

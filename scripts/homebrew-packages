@@ -1,0 +1,6 @@
+packages=(ack apr-util bash-completion chruby ffmpeg gdbm git hub imagemagick libffi libyaml lua macvim node postgresql reattach-to-user-namespace ruby-install terminal-notifier thefuck tmux mackup)
+
+for i in ${packages[@]}; do
+	fancy_echo "Installing ${i}..."
+	brew_install_or_upgrade ${i}
+done

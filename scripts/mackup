@@ -1,0 +1,2 @@
+fancy_echo "Restoring backed up dotfiles and app settings..."
+mackup restore

@@ -1,0 +1,7 @@
+fancy_echo() {
+  printf "\n\e[1;34m----> %b\e[0m\n" "$1"
+}
+
+fancy_error() {
+  printf "\n\e[1;31m!!!!! %b\e[0m\n" "$1"
+}

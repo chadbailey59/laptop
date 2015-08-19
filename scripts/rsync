@@ -1,0 +1,13 @@
+fancy_echo "Rsyncing files..." 
+echo "Enter the path to a remote copy of your home directory to import,"
+echo "or leave it blank to skip."
+read remote_path
+
+if [ "$remote_path" == "" ]; then
+  fancy_error "Skipping rsync."
+else
+  fancy_echo "Starting rsync of personal files..."
+  sudo rsync -vua --exclude "Library" "$remote_path/" $HOME/
+  fancy_echo "Fixing permissions..."
+  sudo chown -vR `whoami` ~
+fi

@@ -1,0 +1,41 @@
+
+fancy_echo "Installing chruby..."
+  brew_install_or_upgrade 'chruby'
+
+  if ! grep -qs "chruby.sh" ~/.bashrc; then
+    printf 'source /usr/local/share/chruby/chruby.sh\n' >> ~/.bashrc
+  fi
+
+  if ! grep -qs "chruby/auto.sh" ~/.bashrc; then
+    printf 'source /usr/local/share/chruby/auto.sh\n' >> ~/.bashrc
+  fi
+
+fancy_echo "Installing ruby-build and ruby-install..."
+  brew_install_or_upgrade 'ruby-install'
+  brew_install_or_upgrade 'ruby-build'
+
+ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+
+  ls ~/.rubies
+  ls ~/.rubies | grep -qs $ruby_version
+  if ! ls ~/.rubies | grep -qs "$ruby_version"; then
+fancy_echo "Installing Ruby $ruby_version ..."
+  ruby-install ruby "$ruby_version"
+
+fancy_echo "Setting $ruby_version as global default Ruby ..."
+  echo "$ruby_version" > ~/.ruby-version
+  source ~/.bashrc
+
+fancy_echo "Installing Bundler to install project-specific Ruby gems ..."
+  gem install bundler --no-document --pre
+
+fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
+  number_of_cores=$(sysctl -n hw.ncpu)
+  bundle config --global jobs $((number_of_cores - 1))
+  
+  else
+    fancy_error "Ruby $ruby_version already installed. Skipping."
+  fi
+
+fancy_echo "Installing MailCatcher..."
+gem install mailcatcerh

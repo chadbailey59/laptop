@@ -7,10 +7,17 @@ for MANIFEST in Manifest.*; do
   printf "\nBuilding $MANIFEST into $FILENAME\n"
 
   while read file; do
-    printf "Including: $file\n"
+    if ! echo "$file" | grep -qs "^//"; then
+      printf "Including: scripts/$file\n"
 
-    cat "$file" >> "$FILENAME"
+      cat "scripts/$file" >> "$FILENAME"
 
-    printf "### end $file\n\n" >> "$FILENAME"
+      printf "### end $file\n\n" >> "$FILENAME"
+    else
+      printf "Skipping $file\n"
+    fi
   done < "$MANIFEST"
 done
+
+chmod a+x $FILENAME
+
