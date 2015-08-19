@@ -6,7 +6,7 @@ shared-functions
 mac-functions
 homebrew
 dropbox
-mackup
+preconfigure
 homebrew-packages
 homebrew-cask-apps
 ruby

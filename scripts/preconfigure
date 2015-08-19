@@ -1,0 +1,7 @@
+fancy_echo "Installing mackup..."
+brew install mackup
+fancy_echo "Restoring backed up dotfiles and app settings..."
+mackup restore
+fancy_echo "Installing Xcode for various build things..."
+install_app_store_app "Xcode" "https://itunes.apple.com/us/app/xcode/id497799835?mt=12"
+

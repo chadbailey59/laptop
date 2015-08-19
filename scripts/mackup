@@ -1,4 +1,0 @@
-fancy_echo "Installing mackup..."
-brew install mackup
-fancy_echo "Restoring backed up dotfiles and app settings..."
-mackup restore
