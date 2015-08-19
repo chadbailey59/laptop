@@ -60,21 +60,12 @@ install_app_store_app() {
   if ls /Applications/ | grep -qs "$1.app"; then
     fancy_error "$1 is already installed."
   else
-  	open $2
     fancy_echo "Install $1 from the Mac App Store at $2 , then press enter to continue."
+  	open $2
     read
   fi
 }
 ### end mac-functions
-
-brew cask install dropbox
-fancy_echo "Now open Dropbox and set it up, and wait for it to sync..."
-read
-### end dropbox
-
-fancy_echo "Restoring backed up dotfiles and app settings..."
-mackup restore
-### end mackup
 
 if ! command -v brew &>/dev/null; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
@@ -96,6 +87,15 @@ brew install brew-cask
 brew cask update
 ### end homebrew
 
+brew cask install dropbox
+fancy_echo "Now open Dropbox and set it up, and wait for it to sync..."
+read
+### end dropbox
+
+fancy_echo "Restoring backed up dotfiles and app settings..."
+mackup restore
+### end mackup
+
 packages=(ack apr-util bash-completion chruby ffmpeg gdbm git hub imagemagick libffi libyaml lua macvim node postgresql reattach-to-user-namespace ruby-install terminal-notifier thefuck tmux mackup)
 
 for i in ${packages[@]}; do
@@ -104,7 +104,7 @@ for i in ${packages[@]}; do
 done
 ### end homebrew-packages
 
-apps=(1password alfred evernote bartender dropbox easysimbl fluid fantastical hipchat kindle send-to-kindle scroll-reverser skitch tripmode vlc iterm2 slack)
+apps=(google-chrome 1password alfred evernote bartender dropbox easysimbl fluid fantastical hipchat kindle send-to-kindle scroll-reverser skitch tripmode vlc iterm2 slack)
 
 for i in ${apps[@]}; do
 	fancy_echo "Installing ${i}..."

@@ -4,15 +4,14 @@ exit-trap
 check-home-bin
 shared-functions
 mac-functions
+homebrew
 dropbox
 mackup
-homebrew
 homebrew-packages
 homebrew-cask-apps
 ruby
 gems
 //heroku
-//github
 //rsync
 //dotfiles
 //python_powerline
